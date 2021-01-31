@@ -13,6 +13,11 @@ class TitleScene extends Phaser.Scene
     create()
     {
         console.log("Scene: TitleScene");
+        let startButton = this.add.circle(400,300,100,0X123456)
+        startButton.setInteractive()
+        startButton.on("pointerdown",this.onClick,this)
+        this.add.text(400,,"Click to start",{color: "white"})
+
     }
 
     update()
@@ -20,5 +25,9 @@ class TitleScene extends Phaser.Scene
 
     }
 
+    onClick()
+    {
+        this.scene.start("Scene1")
+    }
 
 }

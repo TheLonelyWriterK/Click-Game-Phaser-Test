@@ -2,7 +2,7 @@ class Scene1 extends Phaser.Scene
 {
     constructor()
     {
-        super("first");
+        super("Scene1");
         this.counterText = null;
         this.counter = 0;
     }
@@ -14,7 +14,7 @@ class Scene1 extends Phaser.Scene
     
     create()
     {
-        console.log("Scene: TitleScene");
+        console.log("Scene: Scene1");
         var RecA = this.rect(400,300,100,100,0xff0000);
         RecA.setInteractive()
         RecA.on("pointerdown",this.onClick,this)
