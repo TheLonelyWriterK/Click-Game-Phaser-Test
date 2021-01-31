@@ -4,7 +4,9 @@ class Scene1 extends Phaser.Scene
     {
         super("Scene1");
         this.counterText = null;
+        this.upgradeText = null;
         this.counter = 0;
+        this.counterAmount = 0;
     }
 
     preload()
@@ -15,10 +17,18 @@ class Scene1 extends Phaser.Scene
     create()
     {
         console.log("Scene: Scene1");
+
+        //rec A
         var RecA = this.rect(400,300,100,100,0xff0000);
         RecA.setInteractive()
-        RecA.on("pointerdown",this.onClick,this)
-        this.counterText = this.add.text(395,295,"0", {color:'white'})
+        RecA.on("pointerdown",this.onClick1,this)
+        this.counterText = this.add.text(395,295,"0", {color:'white', boundsAlignH: "center", boundsAlignV: "middle"})
+
+        //rec B
+        let RecB = this.rect(400,500,50,50,0xff0000)
+        RecB.setInteractive()
+        RecB.on("pointerdown",this.onClick2)
+        this.upgradeText = this.add.text(450,550,"Upgrade +1",0xff0000)
     }
 
     update()
@@ -32,15 +42,16 @@ class Scene1 extends Phaser.Scene
         return r;
     }
 
-    onClick()
+    onClick1()
     {
-        this.counter += 1;
+        
+        this.counter += this.counterAmount;
         this.counterText.setText(this.counter)
     }
 
-    upgrade()
+    onClick2()
     {
-        
+        this.counterAmount += 1;
     }
     
 }
